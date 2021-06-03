@@ -1,0 +1,16 @@
+name: folding_at_home_scripts
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - jupyterlab
+  - nodejs
+  - numpy
+  - pandas
+  - matplotlib
+  - pip
+  - python=3.8.5
+  - tqdm
+  - pip:
+    - plyvel
+    - nb_black
