@@ -13,5 +13,4 @@ dependencies:
   - python=3.8.5
   - tqdm
   - pip:
-    - plyvel
     - nb_black

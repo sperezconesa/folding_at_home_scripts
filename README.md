@@ -10,14 +10,55 @@ or problem and please share your improvements to the code!
 and help-you study the state of your data.
 + `environment.yml`: this will install with conda the necessary libraries to run
 the code of this repository.
++ `environment-mac.yml`: this will install with conda necessary libraries for MacOS X systems *except for the `plyvel` library*
 
 ## Install Environment
-
+### Linux
 
 You must also install [leveldb](https://github.com/google/leveldb) to use the
-fah-progress.ipynb.
+fah-progress.ipynb. 
+
 ``` bash
 conda env create -f environment.yml
-conda activate folding_at_home_scripts
-ipython kernel install --user --name=folding_at_home_scripts
+conda activate fah-leveldb
+ipython kernel install --user --name=fah-leveldb
 ```
+
+### MacOS X - by Sukrit Singh (sukrit.singh@choderalab.org)
+
+To install [leveldb](https://github.com/google/leveldb) on MacOS, you can use [Homebrew](https://brew.sh/)
+```
+brew install leveldb
+```
+
+Then to actually install the environment:
+``` bash
+conda env create -f environment-mac.yml
+conda activate fah-leveldb
+ipython kernel install --user --name=fah-leveldb
+```
+
+However, you must do a manual installation of the `plyvel` library due to differences in the Darwin OS.
+
+Next, download the [`plyvel`](https://github.com/wbolster/plyvel) library manually from the github page.
+
+Unzip and navigate into the `plyvel` package:
+```
+unzip plyvel-master.zip
+cd plyvel-master
+```
+
+Next, in `plyvel-master/setup.py`, replace *Line 17* with an updated version:
+```
+extra_compile_args = ['-Wall', '-g', '-x', 'c++', '-std=c++11', '-fno-rtti']
+```
+
+Save the updated `setup.py` and run the following commands in the same directory where `setup.py` is:
+```
+make
+python setup.py install
+```
+
+You can test whether plyvel works using `python -c 'import plyvel'` - this should return no output if everything worked!
+
+Now feel free to use `fah-progress.ipynb` for anything you want!
