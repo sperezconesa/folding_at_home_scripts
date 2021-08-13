@@ -26,12 +26,7 @@ ipython kernel install --user --name=fah-leveldb
 
 ### MacOS X - by Sukrit Singh (sukrit.singh@choderalab.org)
 
-To install [leveldb](https://github.com/google/leveldb) on MacOS, you can use [Homebrew](https://brew.sh/)
-```
-brew install leveldb
-```
-
-Then to actually install the environment:
+To actually install the environment, first do:
 ``` bash
 conda env create -f environment-mac.yml
 conda activate fah-leveldb
@@ -52,13 +47,28 @@ Next, in `plyvel-master/setup.py`, replace *Line 17* with an updated version:
 ```
 extra_compile_args = ['-Wall', '-g', '-x', 'c++', '-std=c++11', '-fno-rtti']
 ```
+Save the updated `setup.py`.
 
-Save the updated `setup.py` and run the following commands in the same directory where `setup.py` is:
+Next we will install leveldb: 
+It turns out that the `plyvel` repo already has the scripts you need to setup `leveldb`. Simply go to `plyvel-master/scripts` and run the following scripts - Run them in the following order (note that you need `cmake`):
+1. `./cibuildwheel-before-build.sh`
+2. `./install-leveldb.sh`
+3. `./install-snappy.sh`
+
+*One alternative approach* : To install [leveldb](https://github.com/google/leveldb) on MacOS, you can use [Homebrew](https://brew.sh/)
+```
+brew install leveldb
+```
+Note that homebrew installation can be a bit tricky on MacOS Big Sur
+
+Once you leveldb installed: 
+
+Run the following commands in the same directory where `setup.py` is:
 ```
 make
 python setup.py install
 ```
 
-You can test whether plyvel works using `python -c 'import plyvel'` - this should return no output if everything worked!
+Test whether plyvel works using `python -c 'import plyvel'` - this should return no output if everything worked!
 
 Now feel free to use `fah-progress.ipynb` for anything you want!
