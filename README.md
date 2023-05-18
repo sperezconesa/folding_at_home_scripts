@@ -1,5 +1,4 @@
-# Note: This repo is deprecated - to find the latest updated version of this repo,\
-# Go to the  chodera lab fork (https://github.com/choderalab/folding_at_home_scripts)
+# Note: This repo is deprecated - to find the latest updated version of this repo, go to the  Chodera lab fork (https://github.com/choderalab/folding_at_home_scripts)
 
 # Folding@Home Utility Scripts and Notebooks
 
