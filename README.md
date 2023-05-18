@@ -1,6 +1,8 @@
+# Note: This repo is deprecated - to find the latest updated version of this repo, go to the [Chodera lab fork](https://github.com/choderalab/folding_at_home_scripts)
+
 # Folding@Home Utility Scripts and Notebooks
 
-This repository contains my scripts and notebooks to manage folding@home data.
+This repository contains scripts and notebooks to manage folding@home data.
 Use them as you wish but beware of bugs! Please let me know if you find some bug
 or problem and please share your improvements to the code!
 
@@ -33,7 +35,7 @@ conda activate fah-leveldb
 ipython kernel install --user --name=fah-leveldb
 ```
 
-However, you must do a manual installation of the `plyvel` library due to differences in the Darwin OS.
+However, if you have MacOS 11 (Big Sur) or later, you must do a manual installation of the `plyvel` library due to differences in the Darwin OS.
 
 Next, download the [`plyvel`](https://github.com/wbolster/plyvel) library manually from the github page.
 

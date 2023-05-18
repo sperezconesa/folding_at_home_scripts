@@ -1,1 +1,13 @@
 work.level.db/*
+
+# MacOS Folder view configuration files
+.DS_Store
+Desktop.ini
+
+# MacOS Thumbnail cache files
+._*
+Thumbs.db
+
+# MacOS Files that might appear on external disks
+.Spotlight-V100
+.Trashes
